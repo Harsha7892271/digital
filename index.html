@@ -3,299 +3,691 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sri Harsha | Portfolio</title>
+    <title>Sri Harsha M - Digital Marketer</title>
     <style>
-        /* General Styles */
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Poppins', sans-serif;
+            box-sizing: border-box;
         }
 
         body {
-            background-color: #0a0a0a;
-            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            scroll-behavior: smooth;
+            color: #e0e0e0;
+            background: #0a0a0a;
         }
 
-        header {
-            background: #111;
-            padding: 1.2rem 0;
-            position: sticky;
+        .sidebar {
+            position: fixed;
+            left: 0;
             top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid #333;
+            width: 250px;
+            height: 100vh;
+            background: #141414;
+            border-right: 1px solid #2a2a2a;
+            z-index: 100;
+            padding: 2rem 0;
+            overflow-y: auto;
         }
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1100px;
-            margin: auto;
-            padding: 0 20px;
+        .sidebar-header {
+            padding: 0 2rem 2rem 2rem;
+            border-bottom: 1px solid #2a2a2a;
+            margin-bottom: 2rem;
         }
 
-        .logo {
-            font-size: 1.5rem;
-            color: #00ffcc;
-            font-weight: bold;
+        .sidebar-header h3 {
+            color: #ffffff;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
         }
 
-        ul {
+        .sidebar-header p {
+            color: #808080;
+            font-size: 0.9rem;
+        }
+
+        .sidebar ul {
             list-style: none;
-            display: flex;
-            gap: 25px;
+            padding: 0;
         }
 
-        ul li a {
-            color: #fff;
+        .sidebar li {
+            margin-bottom: 0.5rem;
+        }
+
+        .sidebar a {
+            color: #b0b0b0;
             text-decoration: none;
-            transition: color 0.3s;
+            font-weight: 500;
+            transition: color 0.3s, padding-left 0.3s;
+            display: block;
+            padding: 0.75rem 2rem;
+            border-left: 3px solid transparent;
         }
 
-        ul li a:hover {
-            color: #00ffcc;
+        .sidebar a:hover {
+            color: #ffffff;
+            background: #1a1a1a;
+            border-left-color: #ffffff;
         }
 
-        /* Hero Section */
-        #hero {
-            text-align: center;
-            padding: 100px 20px;
-            background: linear-gradient(to right, #0a0a0a, #121212);
+        .sidebar a.active {
+            color: #ffffff;
+            background: #1a1a1a;
+            border-left-color: #ffffff;
         }
 
-        #hero h1 {
-            font-size: 2.5rem;
-            color: #00ffcc;
+        .menu-toggle {
+            display: none;
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 101;
+            background: #1a1a1a;
+            color: #ffffff;
+            border: 1px solid #2a2a2a;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1.2rem;
         }
 
-        #hero p {
-            margin-top: 15px;
-            font-size: 1.1rem;
-            color: #ccc;
+        .main-content {
+            margin-left: 250px;
         }
 
-        /* About Section */
-        #about, #projects, #contact {
-            max-width: 1000px;
-            margin: 80px auto;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
             padding: 0 20px;
+        }
+
+        .hero {
+            background: #141414;
+            color: #ffffff;
+            padding: 4rem 0;
+            text-align: center;
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            animation: fadeInUp 0.8s ease;
+            color: #ffffff;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #a0a0a0;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .intro-section {
+            background: #0f0f0f;
+            padding: 4rem 0;
+        }
+
+        .intro-content {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .intro-text h2 {
+            color: #ffffff;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+
+        .intro-text p {
+            font-size: 1.1rem;
+            color: #b0b0b0;
+            margin-bottom: 1rem;
+        }
+
+        .photo-placeholder {
+            width: 300px;
+            height: 300px;
+            background: #1a1a1a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: #4a4a4a;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 5px solid #2a2a2a;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #b0b0b0;
+        }
+
+        .contact-item a {
+            color: #d0d0d0;
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        section {
+            padding: 4rem 0;
+            background: #0a0a0a;
+        }
+
+        section:nth-child(even) {
+            background: #0f0f0f;
         }
 
         h2 {
+            color: #ffffff;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
             text-align: center;
-            color: #00ffcc;
-            margin-bottom: 30px;
         }
 
-        p {
-            text-align: center;
-            color: #aaa;
-        }
-
-        /* Projects */
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-        }
-
-        .project-card {
+        .experience-card {
             background: #1a1a1a;
+            padding: 2rem;
             border-radius: 10px;
-            padding: 20px;
-            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            margin-bottom: 2rem;
+            border-left: 4px solid #3a3a3a;
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
         }
 
-        .project-card:hover {
+        .experience-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            border-color: #5a5a5a;
+        }
+
+        .experience-card h3 {
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-card .role {
+            color: #a0a0a0;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .experience-card ul {
+            margin-left: 1.5rem;
+            color: #b0b0b0;
+        }
+
+        .experience-card li {
+            margin-bottom: 0.5rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: #1a1a1a;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #2a2a2a;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            border-color: #3a3a3a;
+        }
+
+        .skill-category h3 {
+            color: #ffffff;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .skill-category p {
+            color: #b0b0b0;
+            line-height: 1.8;
+        }
+
+        .education-card {
+            background: #1a1a1a;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            max-width: 600px;
+            margin: 0 auto;
+            border: 1px solid #2a2a2a;
+        }
+
+        .education-card h3 {
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-card .institution {
+            color: #a0a0a0;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-card .year {
+            color: #808080;
+        }
+
+        .certifications {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .cert-badge {
+            background: #1a1a1a;
+            color: #e0e0e0;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #2a2a2a;
+        }
+
+        .cert-badge:hover {
             transform: scale(1.05);
-            background: #222;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+            border-color: #3a3a3a;
         }
 
-        .project-card h3 {
-            color: #00ffcc;
+        .contact-form-section {
+            background: #0f0f0f;
+            padding: 4rem 0;
         }
 
-        /* Contact Form */
-        form {
-            background: #111;
-            padding: 25px;
+        .contact-form-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-form {
+            background: #1a1a1a;
+            padding: 2rem;
             border-radius: 10px;
-            margin-top: 20px;
-            box-shadow: 0 0 10px #00ffcc33;
+            border: 1px solid #2a2a2a;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 1.5rem;
         }
 
-        label {
+        .form-group label {
             display: block;
-            margin-bottom: 6px;
-            color: #ddd;
+            color: #e0e0e0;
+            margin-bottom: 0.5rem;
             font-weight: 500;
         }
 
-        input, textarea {
+        .form-group input,
+        .form-group textarea {
             width: 100%;
-            padding: 12px;
-            border: none;
+            padding: 0.75rem;
+            background: #0f0f0f;
+            border: 1px solid #2a2a2a;
             border-radius: 5px;
-            background: #222;
-            color: #fff;
+            color: #e0e0e0;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
             outline: none;
-            resize: none;
+            border-color: #4a4a4a;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
         }
 
         .submit-btn {
-            background: #00ffcc;
-            color: #000;
-            border: none;
-            padding: 12px 25px;
+            background: #2a2a2a;
+            color: #e0e0e0;
+            padding: 1rem 2rem;
+            border: 1px solid #3a3a3a;
             border-radius: 5px;
-            font-weight: 600;
+            font-size: 1rem;
+            font-weight: 500;
             cursor: pointer;
-            transition: 0.3s;
+            transition: all 0.3s;
+            width: 100%;
         }
 
         .submit-btn:hover {
-            background: #00cca3;
+            background: #3a3a3a;
+            border-color: #4a4a4a;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
 
-        #thankYouMessage {
-            display: none;
-            text-align: center;
-            margin-top: 15px;
-            color: #00ffcc;
-            font-weight: 600;
+        .contact-info-box {
+            background: #1a1a1a;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid #2a2a2a;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info-box h3 {
+            color: #ffffff;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .contact-info-box p {
+            color: #b0b0b0;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-info-box a {
+            color: #d0d0d0;
+            text-decoration: none;
+        }
+
+        .contact-info-box a:hover {
+            color: #ffffff;
+            text-decoration: underline;
         }
 
         footer {
+            background: #141414;
+            color: #808080;
             text-align: center;
-            padding: 20px;
-            color: #888;
-            border-top: 1px solid #222;
-            margin-top: 60px;
+            padding: 2rem 0;
+            border-top: 1px solid #2a2a2a;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @media (max-width: 768px) {
-            nav ul {
-                display: none;
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s;
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .intro-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .photo-placeholder {
+                margin: 0 auto;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .contact-info {
+                justify-content: center;
             }
         }
     </style>
 </head>
 <body>
+    <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
 
-    <header>
-        <nav>
-            <div class="logo">Sri Harsha</div>
-            <ul>
-                <li><a href="#hero">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h3>Sri Harsha M</h3>
+            <p>Digital Marketer</p>
+        </div>
+        <ul>
+            <li><a href="#hero" class="nav-link">Home</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#experience" class="nav-link">Experience</a></li>
+            <li><a href="#skills" class="nav-link">Skills</a></li>
+            <li><a href="#education" class="nav-link">Education</a></li>
+            <li><a href="#certifications" class="nav-link">Certifications</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+    </div>
 
-    <!-- Hero -->
-    <section id="hero">
-        <h1>Hi, I'm Sri Harsha 👋</h1>
-        <p>A creative B.Tech student, marketer, and builder — documenting my journey of projects, startups, and storytelling.</p>
-    </section>
-
-    <!-- About -->
-    <section id="about">
-        <h2>About Me</h2>
-        <p>I’m passionate about marketing, product design, and building meaningful digital experiences. I love combining creativity with strategy to make things that people remember.</p>
-    </section>
-
-    <!-- Projects -->
-    <section id="projects">
-        <h2>My Projects</h2>
-        <div class="project-grid">
-            <div class="project-card">
-                <h3>Timetable Planner (JavaFX)</h3>
-                <p>A desktop app that manages classes, reminders, and habits using JavaFX and MySQL.</p>
+    <div class="main-content">
+        <div class="hero" id="hero">
+            <div class="container">
+                <h1>Sri Harsha M</h1>
+                <p>Digital Marketer | Content Strategist | D2C Growth Specialist</p>
             </div>
-            <div class="project-card">
-                <h3>FinTech Platform</h3>
-                <p>A financial app designed for students to manage pocket money and learn savings habits.</p>
-            </div>
-            <div class="project-card">
-                <h3>YouTube Channel</h3>
-                <p>Creating cinematic documentaries and storytelling videos about startups and student life.</p>
+        </div>
+
+    <section id="about" class="intro-section">
+        <div class="container">
+            <div class="intro-content">
+                <div class="intro-text">
+                    <h2>About Me</h2>
+                    <p>Motivated and creative digital marketer passionate about helping D2C startups grow their online presence through impactful content, social media strategy, and optimized websites.</p>
+                    <p>I'm eager to gain hands-on experience in content marketing, social media management, and website analytics to deliver measurable brand growth. My approach combines data-driven insights with creative storytelling to build engaging digital experiences.</p>
+                    
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            📧 <a href="mailto:sriharshamanchikanti@gmail.com">sriharshamanchikanti@gmail.com</a>
+                        </div>
+                        <div class="contact-item">
+                            📱 +91 9606331953
+                        </div>
+                        <div class="contact-item">
+                            🌐 <a href="http://sriharhsa.com" target="_blank">sriharhsa.com</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="photo-placeholder">
+                    📷
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact -->
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <p>Got a project, collaboration idea, or just want to say hi? Drop me a message below 👇</p>
-
-        <form id="contactForm" action="https://formsubmit.co/sriharshamanchikanti@gmail.com" method="POST">
-            <div class="form-group">
-                <label for="name">Name *</label>
-                <input type="text" id="name" name="name" placeholder="Your full name" required>
+    <section id="experience">
+        <div class="container">
+            <h2>Work Experience</h2>
+            <div class="experience-card">
+                <h3>Simulated D2C Launch Project</h3>
+                <p class="role">Digital Marketing Strategist | Personal Project</p>
+                <ul>
+                    <li>Created a mock D2C skincare brand campaign with complete go-to-market strategy</li>
+                    <li>Designed an Instagram content calendar with 15 posts using Canva, focusing on brand storytelling and engagement</li>
+                    <li>Wrote 3 SEO-optimized blog posts and compelling website product descriptions</li>
+                    <li>Optimized website landing page for conversions using GA4 insights, improving user journey and call-to-action placement</li>
+                </ul>
             </div>
+        </div>
+    </section>
 
-            <div class="form-group">
-                <label for="email">Email *</label>
-                <input type="email" id="email" name="email" placeholder="your@email.com" required>
+    <section id="skills">
+        <div class="container">
+            <h2>Skills & Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>📝 Content Marketing</h3>
+                    <p>Blog writing, storytelling, newsletters, SEO copywriting</p>
+                </div>
+                <div class="skill-category">
+                    <h3>📱 Social Media Marketing</h3>
+                    <p>Instagram management, Canva design, content planning, engagement strategy</p>
+                </div>
+                <div class="skill-category">
+                    <h3>🌐 Website Optimization</h3>
+                    <p>Google Analytics (GA4), landing page optimization, website content SEO</p>
+                </div>
+                <div class="skill-category">
+                    <h3>🛠️ Tools</h3>
+                    <p>Google Analytics, Canva, CapCut, Meta Business Suite, Notion, Grammarly, SurferSEO</p>
+                </div>
             </div>
+        </div>
+    </section>
 
-            <div class="form-group">
-                <label for="subject">Subject *</label>
-                <input type="text" id="subject" name="subject" placeholder="Message subject" required>
+    <section id="education">
+        <div class="container">
+            <h2>Education</h2>
+            <div class="education-card">
+                <h3>B.Tech in ECE (VLSI)</h3>
+                <p class="institution">Vellore Institute of Technology - AP</p>
+                <p class="year">2024 - 2028</p>
             </div>
+        </div>
+    </section>
 
-            <div class="form-group">
-                <label for="message">Message *</label>
-                <textarea id="message" name="message" rows="5" placeholder="Type your message..." required></textarea>
+    <section id="certifications">
+        <div class="container">
+            <h2>Certifications</h2>
+            <div class="certifications">
+                <div class="cert-badge">
+                    🎓 Fundamentals of Digital Marketing – Google Digital Garage
+                </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Hidden inputs for FormSubmit -->
-            <input type="hidden" name="_subject" value="New Contact from Portfolio Website">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_next" value="https://sriharhsa.com/#thankyou">
+    <section id="contact" class="contact-form-section">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <div class="contact-form-container">
+                <div class="contact-info-box">
+                    <h3>Contact Information</h3>
+                    <p>📧 Email: <a href="mailto:sriharshamanchikanti@gmail.com">sriharshamanchikanti@gmail.com</a></p>
+                    <p>📱 Phone: +91 9606331953</p>
+                    <p>🌐 Website: <a href="http://sriharhsa.com" target="_blank">sriharhsa.com</a></p>
+                </div>
 
-            <button type="submit" class="submit-btn">Send Message</button>
-        </form>
+                <form class="contact-form" action="https://formsubmit.co/sriharshamanchikanti@gmail.com" method="POST">
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Subject *</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
 
-        <p id="thankYouMessage">✅ Thank you! Your message has been sent successfully.</p>
+                    <input type="hidden" name="_subject" value="New contact from portfolio website">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+                    
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
     </section>
 
     <footer>
-        <p>© 2025 Sri Harsha | Built with ❤️ and caffeine</p>
+        <div class="container">
+            <p>&copy; 2025 Sri Harsha M. All rights reserved.</p>
+        </div>
     </footer>
+    </div>
 
     <script>
-        // Contact form handling
-        const form = document.getElementById('contactForm');
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('active');
+        }
 
-            const formData = new FormData(form);
-            const response = await fetch(form.action, {
-                method: 'POST',
-                body: formData,
-                headers: { 'Accept': 'application/json' }
+        // Highlight active section
+        const sections = document.querySelectorAll('section, .hero');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
             });
 
-            if (response.ok) {
-                form.reset();
-                document.getElementById('thankYouMessage').style.display = 'block';
-            } else {
-                alert('❌ Something went wrong. Please try again later.');
-            }
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close sidebar on mobile after clicking
+                    if (window.innerWidth <= 768) {
+                        document.getElementById('sidebar').classList.remove('active');
+                    }
+                }
+            });
         });
     </script>
-
 </body>
 </html>
