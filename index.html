@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sri Harsha | Portfolio</title>
+    <style>
+        /* General Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #0a0a0a;
+            color: #ffffff;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        header {
+            background: #111;
+            padding: 1.2rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #333;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1100px;
+            margin: auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            color: #00ffcc;
+            font-weight: bold;
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        ul li a:hover {
+            color: #00ffcc;
+        }
+
+        /* Hero Section */
+        #hero {
+            text-align: center;
+            padding: 100px 20px;
+            background: linear-gradient(to right, #0a0a0a, #121212);
+        }
+
+        #hero h1 {
+            font-size: 2.5rem;
+            color: #00ffcc;
+        }
+
+        #hero p {
+            margin-top: 15px;
+            font-size: 1.1rem;
+            color: #ccc;
+        }
+
+        /* About Section */
+        #about, #projects, #contact {
+            max-width: 1000px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #00ffcc;
+            margin-bottom: 30px;
+        }
+
+        p {
+            text-align: center;
+            color: #aaa;
+        }
+
+        /* Projects */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            background: #1a1a1a;
+            border-radius: 10px;
+            padding: 20px;
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: scale(1.05);
+            background: #222;
+        }
+
+        .project-card h3 {
+            color: #00ffcc;
+        }
+
+        /* Contact Form */
+        form {
+            background: #111;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 20px;
+            box-shadow: 0 0 10px #00ffcc33;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            color: #ddd;
+            font-weight: 500;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            background: #222;
+            color: #fff;
+            outline: none;
+            resize: none;
+        }
+
+        .submit-btn {
+            background: #00ffcc;
+            color: #000;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #00cca3;
+        }
+
+        #thankYouMessage {
+            display: none;
+            text-align: center;
+            margin-top: 15px;
+            color: #00ffcc;
+            font-weight: 600;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #888;
+            border-top: 1px solid #222;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">Sri Harsha</div>
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section id="hero">
+        <h1>Hi, I'm Sri Harsha 👋</h1>
+        <p>A creative B.Tech student, marketer, and builder — documenting my journey of projects, startups, and storytelling.</p>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+        <h2>About Me</h2>
+        <p>I’m passionate about marketing, product design, and building meaningful digital experiences. I love combining creativity with strategy to make things that people remember.</p>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+        <h2>My Projects</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <h3>Timetable Planner (JavaFX)</h3>
+                <p>A desktop app that manages classes, reminders, and habits using JavaFX and MySQL.</p>
+            </div>
+            <div class="project-card">
+                <h3>FinTech Platform</h3>
+                <p>A financial app designed for students to manage pocket money and learn savings habits.</p>
+            </div>
+            <div class="project-card">
+                <h3>YouTube Channel</h3>
+                <p>Creating cinematic documentaries and storytelling videos about startups and student life.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>Got a project, collaboration idea, or just want to say hi? Drop me a message below 👇</p>
+
+        <form id="contactForm" action="https://formsubmit.co/sriharshamanchikanti@gmail.com" method="POST">
+            <div class="form-group">
+                <label for="name">Name *</label>
+                <input type="text" id="name" name="name" placeholder="Your full name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" placeholder="your@email.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="subject">Subject *</label>
+                <input type="text" id="subject" name="subject" placeholder="Message subject" required>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Message *</label>
+                <textarea id="message" name="message" rows="5" placeholder="Type your message..." required></textarea>
+            </div>
+
+            <!-- Hidden inputs for FormSubmit -->
+            <input type="hidden" name="_subject" value="New Contact from Portfolio Website">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_next" value="https://sriharhsa.com/#thankyou">
+
+            <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+
+        <p id="thankYouMessage">✅ Thank you! Your message has been sent successfully.</p>
+    </section>
+
+    <footer>
+        <p>© 2025 Sri Harsha | Built with ❤️ and caffeine</p>
+    </footer>
+
+    <script>
+        // Contact form handling
+        const form = document.getElementById('contactForm');
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(form);
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            });
+
+            if (response.ok) {
+                form.reset();
+                document.getElementById('thankYouMessage').style.display = 'block';
+            } else {
+                alert('❌ Something went wrong. Please try again later.');
+            }
+        });
+    </script>
+
+</body>
+</html>
